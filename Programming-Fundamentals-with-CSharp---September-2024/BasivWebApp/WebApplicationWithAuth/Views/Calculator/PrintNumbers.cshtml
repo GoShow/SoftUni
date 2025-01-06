@@ -1,0 +1,16 @@
+﻿@model int
+
+<form method="POST">
+    <input type="number" placeholder="New number" name="number"/>
+    <button type="submit">Submit</button>
+</form>
+
+<div class="text-center">
+
+    @for (int i = 1; i <= Model; i++)
+    {
+        <p>@i</p>
+    }
+</div>
+
+

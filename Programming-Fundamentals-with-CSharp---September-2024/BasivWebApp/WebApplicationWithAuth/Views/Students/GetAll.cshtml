@@ -1,0 +1,9 @@
+﻿@model List<Student>
+
+
+<div class="text-center">
+    @foreach (Student student in Model)
+    {
+        <h2>@student.Name is @student.Age years old.</h2>
+    }
+</div>
