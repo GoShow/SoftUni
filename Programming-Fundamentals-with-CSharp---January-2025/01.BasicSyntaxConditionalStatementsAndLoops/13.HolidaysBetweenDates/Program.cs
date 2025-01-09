@@ -13,15 +13,12 @@ class HolidaysBetweenTwoDates
 
         int holidaysCount = 0;
 
-        if (startDate <= endDate)
+        for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
         {
-            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            if (date.DayOfWeek == DayOfWeek.Saturday ||
+                date.DayOfWeek == DayOfWeek.Sunday)
             {
-                if (date.DayOfWeek == DayOfWeek.Saturday ||
-                    date.DayOfWeek == DayOfWeek.Sunday)
-                {
-                    holidaysCount++;
-                }
+                holidaysCount++;
             }
         }
 
