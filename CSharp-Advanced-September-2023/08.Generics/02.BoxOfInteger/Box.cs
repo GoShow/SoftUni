@@ -1,31 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace BoxOfInteger;
+﻿namespace BoxOfInteger;
 
 public class Box<T>
 {
-    private List<T> items;
+    private T value;
 
-    public Box()
+    public Box(T value)
     {
-        items = new List<T>();
-    }
-
-    public void Add(T item)
-    {
-        items.Add(item);
+        this.value = value;
     }
 
     public override string ToString()
     {
-        StringBuilder sb = new();
-
-        foreach (var item in items)
-        {
-            sb.AppendLine($"{typeof(T)}: {item}");
-        }
-
-        return sb.ToString().TrimEnd();
+        return $"{typeof(T)}: {value}";
     }
 }

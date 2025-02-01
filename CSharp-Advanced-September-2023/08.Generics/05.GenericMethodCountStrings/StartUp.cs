@@ -1,17 +1,16 @@
 ﻿using GenericMethodCountStrings;
 using System;
+using System.Collections.Generic;
 
-Box<string> box = new();
+List<string> items = new();
 
 int count = int.Parse(Console.ReadLine());
 
 for (int i = 0; i < count; i++)
 {
-    string item = Console.ReadLine();
-
-    box.Add(item);
+    items.Add(Console.ReadLine());
 }
 
-string itemToCompare = Console.ReadLine();
+Box<string> box = new(Console.ReadLine());
 
-Console.WriteLine(box.Count(itemToCompare));
+Console.WriteLine(box.Count(items));

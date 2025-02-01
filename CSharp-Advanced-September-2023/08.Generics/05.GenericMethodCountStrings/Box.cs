@@ -1,42 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GenericMethodCountStrings;
 
 public class Box<T> where T : IComparable<T>
 {
-    private List<T> items;
+    private T value;
 
-    public Box()
+    public Box(T value)
     {
-        items = new List<T>();
+        this.value = value;
     }
 
     public override string ToString()
     {
-        StringBuilder sb = new();
-
-        foreach (var item in items)
-        {
-            sb.AppendLine($"{typeof(T)}: {item}");
-        }
-
-        return sb.ToString().TrimEnd();
+        return $"{typeof(T)}: {value}";
     }
 
-    public void Add(T item)
-    {
-        items.Add(item);
-    }
-
-    public int Count(T itemToCompare)
+    public int Count(List<T> itemsToCompare)
     {
         int count = 0;
 
-        foreach (var item in items)
+        foreach (T item in itemsToCompare)
         {
-            if (item.CompareTo(itemToCompare) > 0)
+            if (item.CompareTo(value) > 0)
             {
                 count++;
             }

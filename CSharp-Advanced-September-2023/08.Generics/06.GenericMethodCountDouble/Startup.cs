@@ -1,18 +1,17 @@
 ﻿using GenericMethodCountDouble;
 using System;
+using System.Collections.Generic;
 
-Box<double> box = new();
+List<double> items = new();
 
 int count = int.Parse(Console.ReadLine());
 
 for (int i = 0; i < count; i++)
 {
-    double item = double.Parse(Console.ReadLine());
-
-    box.Add(item);
+    items.Add(double.Parse(Console.ReadLine()));
 }
 
-double itemToCompare = double.Parse(Console.ReadLine());
+Box<double> box = new(double.Parse(Console.ReadLine()));
 
-Console.WriteLine(box.Count(itemToCompare));
+Console.WriteLine(box.Count(items));
 

@@ -1,15 +1,14 @@
 ﻿using BoxOfString;
 using System;
 
-Box<string> box = new();
-
 int count = int.Parse(Console.ReadLine());
 
 for (int i = 0; i < count; i++)
 {
-    string item = Console.ReadLine();
+    string value = Console.ReadLine();
 
-    box.Add(item);
+    Box<string> box = new(value);
+
+    Console.WriteLine(box.ToString());
 }
 
-Console.WriteLine(box.ToString());
