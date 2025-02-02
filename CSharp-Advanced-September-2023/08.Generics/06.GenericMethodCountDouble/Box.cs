@@ -17,7 +17,7 @@ public class Box<T> where T : IComparable<T>
         return $"{typeof(T)}: {value}";
     }
 
-    public int Count(List<T> itemsToCompare)
+    public int CountLarger(List<T> itemsToCompare)
     {
         int count = 0;
 

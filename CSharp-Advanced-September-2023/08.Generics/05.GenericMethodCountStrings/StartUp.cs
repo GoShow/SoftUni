@@ -13,4 +13,4 @@ for (int i = 0; i < count; i++)
 
 Box<string> box = new(Console.ReadLine());
 
-Console.WriteLine(box.Count(items));
+Console.WriteLine(box.CountLarger(items));

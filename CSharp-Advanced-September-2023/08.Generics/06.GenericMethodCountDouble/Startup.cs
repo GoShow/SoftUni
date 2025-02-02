@@ -13,5 +13,5 @@ for (int i = 0; i < count; i++)
 
 Box<double> box = new(double.Parse(Console.ReadLine()));
 
-Console.WriteLine(box.Count(items));
+Console.WriteLine(box.CountLarger(items));
 
