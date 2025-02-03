@@ -12,11 +12,6 @@ public class Box<T> where T : IComparable<T>
         this.value = value;
     }
 
-    public override string ToString()
-    {
-        return $"{typeof(T)}: {value}";
-    }
-
     public int CountLarger(List<T> itemsToCompare)
     {
         int count = 0;
@@ -30,6 +25,11 @@ public class Box<T> where T : IComparable<T>
         }
 
         return count;
+    }
+
+    public override string ToString()
+    {
+        return $"{typeof(T)}: {value}";
     }
 }
 
