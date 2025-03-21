@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35728.132 d17.12
+VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.WorldTour", "01.WorldTour\01.WorldTour.csproj", "{99E302D3-32A3-4B24-A9D1-6B287C5C9FE4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.MirrorWords", "02.MirrorWords\02.MirrorWords.csproj", "{97B82937-2859-4682-8E48-834A072402E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.ThePianist", "03.ThePianist\03.ThePianist.csproj", "{08749A08-7B2E-4FC9-979C-3AD1A9ACF811}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ThePianistWIthClass", "04.ThePianistWIthClass\04.ThePianistWIthClass.csproj", "{2E61EBF4-0E89-498B-9266-6FF639E5FF2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{97B82937-2859-4682-8E48-834A072402E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97B82937-2859-4682-8E48-834A072402E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97B82937-2859-4682-8E48-834A072402E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08749A08-7B2E-4FC9-979C-3AD1A9ACF811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08749A08-7B2E-4FC9-979C-3AD1A9ACF811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08749A08-7B2E-4FC9-979C-3AD1A9ACF811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08749A08-7B2E-4FC9-979C-3AD1A9ACF811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E61EBF4-0E89-498B-9266-6FF639E5FF2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E61EBF4-0E89-498B-9266-6FF639E5FF2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E61EBF4-0E89-498B-9266-6FF639E5FF2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E61EBF4-0E89-498B-9266-6FF639E5FF2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
