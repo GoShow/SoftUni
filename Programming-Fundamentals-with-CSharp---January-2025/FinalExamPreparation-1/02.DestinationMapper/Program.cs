@@ -23,6 +23,6 @@ internal class Program
         int travelPoints = destinations.Sum(d => d.Length);
 
         Console.WriteLine($"Destinations: {string.Join(", ", destinations)}");
-        Console.WriteLine($"Travel points: {travelPoints}");
+        Console.WriteLine($"Travel Points: {travelPoints}");
     }
 }
