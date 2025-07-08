@@ -5,7 +5,6 @@ namespace VehiclesExtension.Models;
 
 public abstract class Vehicle : IVehicle
 {
-    private double increasedConsumption;
     private double fuelQuantity;
 
     protected Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity)
