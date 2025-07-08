@@ -2,11 +2,13 @@
 
 public interface IVehicle
 {
-    public double FuelQuantity { get; }
+    double FuelQuantity { get; }
 
-    public double FuelConsumption { get; }
+    double FuelConsumption { get; }
 
-    public bool Drive(double distance);
+    bool Drive(double distance);
 
-    public bool Refuel(double amount);
+    bool Drive(double distance, double fuelConsumption)
+
+    bool Refuel(double amount);
 }
