@@ -38,6 +38,7 @@ public abstract class Vehicle : IVehicle
     {
         return Drive(distance, FuelConsumption);
     }
+    
     public bool Drive(double distance, double fuelConsumption)
     {
         if (FuelQuantity < distance * fuelConsumption)
