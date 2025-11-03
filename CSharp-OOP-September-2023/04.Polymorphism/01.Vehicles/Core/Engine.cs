@@ -27,8 +27,13 @@ public class Engine : IEngine
 
     public void Run()
     {
-        vehicles.Add(CreateVehicle()); //add Car
-        vehicles.Add(CreateVehicle()); //add Truck
+        string[] tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        IVehicle car = vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2])); //create Car
+        vehicles.Add(car);
+
+        tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        IVehicle truck = vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2])); //create Truck
+        vehicles.Add(truck);
 
         int commandsCount = int.Parse(reader.ReadLine());
 
@@ -51,17 +56,7 @@ public class Engine : IEngine
             {
                 double distance = double.Parse(commandTokens[2]);
 
-                bool isDriven = vehicle.Drive(distance);
-
-                if (isDriven)
-                {
-                    writer.WriteLine($"{vehicleType} travelled {distance} km");
-                }
-                else
-                {
-                    writer.WriteLine($"{vehicleType} needs refueling");
-                }
-
+                writer.WriteLine(vehicle.Drive(distance));
             }
             else if (command == "Refuel")
             {
@@ -74,13 +69,6 @@ public class Engine : IEngine
         {
             writer.WriteLine(vehicle.ToString());
         }
-    }
-
-    private IVehicle CreateVehicle()
-    {
-        string[] tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
-        return vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]));
     }
 }
 

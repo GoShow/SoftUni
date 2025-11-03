@@ -1,11 +1,9 @@
-﻿using System;
-using VehiclesExtension.Models.Interfaces;
+﻿using VehiclesExtension.Models.Interfaces;
 
 namespace VehiclesExtension.Models;
 
 public abstract class Vehicle : IVehicle
 {
-    private double increasedConsumption;
     private double fuelQuantity;
 
     protected Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity)
@@ -31,41 +29,37 @@ public abstract class Vehicle : IVehicle
         }
     }
 
-    public virtual double FuelConsumption { get; private set; }
+    public virtual double FuelConsumption { get; protected set; }
 
     public double TankCapacity { get; private set; }
 
-    public bool Drive(double distance)
+    public string Drive(double distance)
     {
-        return Drive(distance, FuelConsumption);
-    }
-    public bool Drive(double distance, double fuelConsumption)
-    {
-        if (FuelQuantity < distance * fuelConsumption)
+        if (FuelQuantity < distance * FuelConsumption)
         {
-            return false;
+            return $"{GetType().Name} needs refueling";
         }
 
-        FuelQuantity -= distance * fuelConsumption;
+        FuelQuantity -= distance * FuelConsumption;
 
-        return true;
+        return $"{GetType().Name} travelled {distance} km";
     }
 
-    public virtual bool Refuel(double amount)
+    public virtual string Refuel(double amount)
     {
         if (amount <= 0)
         {
-            throw new ArgumentException("Fuel must be a positive number");
+            return "Fuel must be a positive number";
         }
 
         if (amount + FuelQuantity > TankCapacity)
         {
-            return false;
+            return $"Cannot fit {amount} fuel in the tank";
         }
 
         FuelQuantity += amount;
 
-        return true;
+        return "Refueled";
     }
 
     public override string ToString()

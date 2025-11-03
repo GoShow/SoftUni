@@ -10,8 +10,10 @@ public class Bus : Vehicle, ISpecializedVehicle
 
     public override double FuelConsumption => base.FuelConsumption + 1.4;
 
-    public bool DriveEmpty(double distance)
+    public string DriveEmpty(double distance)
     {
-        return Drive(distance, base.FuelConsumption);
+        base.FuelConsumption -= 1.4;
+
+        return Drive(distance);
     }
 }

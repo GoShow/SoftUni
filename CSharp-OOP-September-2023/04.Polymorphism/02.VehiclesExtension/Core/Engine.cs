@@ -27,25 +27,59 @@ public class Engine : IEngine
 
     public void Run()
     {
-        vehicles.Add(CreateVehicle()); //add Car
-        vehicles.Add(CreateVehicle()); //add Truck
-        vehicles.Add(CreateVehicle()); //add Bus
+        string[] tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        IVehicle car = vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]), double.Parse(tokens[3])); //create Car
+        vehicles.Add(car);
+
+        tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        IVehicle truck = vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]), double.Parse(tokens[3])); //create Truck
+        vehicles.Add(truck);
+
+        tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+        IVehicle bus = vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]), double.Parse(tokens[3])); //create Bus
+        vehicles.Add(bus);
 
         int commandsCount = int.Parse(reader.ReadLine());
 
         for (int i = 0; i < commandsCount; i++)
         {
-            try
+            string[] commandTokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+            string command = commandTokens[0];
+            string vehicleType = commandTokens[1];
+
+            IVehicle vehicle = vehicles.FirstOrDefault(v => v.GetType().Name == vehicleType);
+
+            if (vehicle == null)
             {
-                ProcessCommand();
+                throw new ArgumentException("Invalid vehicle type");
             }
-            catch (ArgumentException ex)
+
+            if (command == "Drive")
             {
-                writer.WriteLine(ex.Message);
+                double distance = double.Parse(commandTokens[2]);
+
+                writer.WriteLine(vehicle.Drive(distance));
             }
-            catch (Exception)
+            else if (command == "DriveEmpty")
             {
-                throw;
+                if (vehicle is ISpecializedVehicle specializedVehicle)
+                {
+                    double distance = double.Parse(commandTokens[2]);
+
+                    writer.WriteLine(((ISpecializedVehicle)vehicle).DriveEmpty(distance));
+                }
+            }
+            else if (command == "Refuel")
+            {
+                double fuelAmount = double.Parse(commandTokens[2]);
+
+                string refuelMessage = vehicle.Refuel(fuelAmount);
+
+                if (refuelMessage != "Refueled")
+                {
+                    writer.WriteLine(refuelMessage);
+                }
             }
         }
 
@@ -53,72 +87,5 @@ public class Engine : IEngine
         {
             writer.WriteLine(vehicle.ToString());
         }
-    }
-
-    private void ProcessCommand()
-    {
-        string[] commandTokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-
-        string command = commandTokens[0];
-        string vehicleType = commandTokens[1];
-
-        IVehicle vehicle = vehicles.FirstOrDefault(v => v.GetType().Name == vehicleType);
-
-        if (vehicle == null)
-        {
-            throw new ArgumentException("Invalid vehicle type");
-        }
-
-        if (command == "Drive")
-        {
-            double distance = double.Parse(commandTokens[2]);
-
-            bool isDriven = vehicle.Drive(distance);
-
-            if (isDriven)
-            {
-                writer.WriteLine($"{vehicleType} travelled {distance} km");
-            }
-            else
-            {
-                writer.WriteLine($"{vehicleType} needs refueling");
-            }
-        }
-        else if (command == "DriveEmpty")
-        {
-            if (vehicle is ISpecializedVehicle specializedVehicle)
-            {
-                double distance = double.Parse(commandTokens[2]);
-
-                bool isDriven = specializedVehicle.DriveEmpty(distance);
-
-                if (isDriven)
-                {
-                    writer.WriteLine($"{vehicleType} travelled {distance} km");
-                }
-                else
-                {
-                    writer.WriteLine($"{vehicleType} needs refueling");
-                }
-            }
-        }
-        else if (command == "Refuel")
-        {
-            double fuelAmount = double.Parse(commandTokens[2]);
-
-            bool isRefueled = vehicle.Refuel(fuelAmount);
-
-            if (!isRefueled)
-            {
-                Console.WriteLine($"Cannot fit {fuelAmount} fuel in the tank");
-            }
-        }
-    }
-
-    private IVehicle CreateVehicle()
-    {
-        string[] tokens = reader.ReadLine().Split(" ", System.StringSplitOptions.RemoveEmptyEntries);
-
-        return vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]), double.Parse(tokens[3]));
     }
 }

@@ -1,8 +1,6 @@
-﻿using VehiclesExtension.Models.Interfaces;
+﻿namespace VehiclesExtension.Models;
 
-namespace VehiclesExtension.Models;
-
-public class Truck : Vehicle, ISpecializedVehicle
+public class Truck : Vehicle
 {
     public Truck(double fuelQuantity, double fuelConsumption, double tankCapacity)
         : base(fuelQuantity, fuelConsumption, tankCapacity)
@@ -10,13 +8,18 @@ public class Truck : Vehicle, ISpecializedVehicle
 
     public override double FuelConsumption => base.FuelConsumption + 1.6;
 
-    public override bool Refuel(double amount)
+    public override string Refuel(double amount)
     {
-        return base.Refuel(amount * 0.95);
-    }
+        if (amount <= 0)
+        {
+            return "Fuel must be a positive number";
+        }
 
-    public bool DriveEmpty(double distance)
-    {
-        return Drive(distance, base.FuelConsumption);
+        if (amount + FuelQuantity > TankCapacity)
+        {
+            return $"Cannot fit {amount} fuel in the tank";
+        }
+
+        return base.Refuel(amount * 0.95);
     }
 }

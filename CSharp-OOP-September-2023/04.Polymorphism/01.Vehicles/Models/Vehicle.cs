@@ -14,16 +14,16 @@ public abstract class Vehicle : IVehicle
 
     public virtual double FuelConsumption { get; private set; }
 
-    public bool Drive(double distance)
+    public string Drive(double distance)
     {
         if (FuelQuantity < distance * FuelConsumption)
         {
-            return false;
+            return $"{GetType().Name} needs refueling";
         }
 
         FuelQuantity -= distance * FuelConsumption;
 
-        return true;
+        return $"{GetType().Name} travelled {distance} km";
     }
 
     public virtual void Refuel(double amount)
