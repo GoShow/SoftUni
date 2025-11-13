@@ -12,22 +12,17 @@ public static class Validator
     {
         Type objType = obj.GetType();
 
-        PropertyInfo[] propertyInfos = objType
-            .GetProperties()
-            .Where(p => p.CustomAttributes
-                .Any(ca => typeof(MyValidationAttribute).IsAssignableFrom(ca.AttributeType)))
-            .ToArray();
+        PropertyInfo[] properties = objType.GetProperties();
 
-        foreach (PropertyInfo propertyInfo in propertyInfos)
+        foreach (PropertyInfo property in properties)
         {
-            IEnumerable<MyValidationAttribute> attributes = propertyInfo
-                .GetCustomAttributes()
-                .Where(ca => typeof(MyValidationAttribute).IsAssignableFrom(ca.GetType()))
-                .Cast<MyValidationAttribute>();
+            IEnumerable<MyValidationAttribute> validationAttributes = property.GetCustomAttributes<MyValidationAttribute>();
 
-            foreach (MyValidationAttribute attribute in attributes)
+            foreach (MyValidationAttribute attribute in validationAttributes)
             {
-                if (!attribute.IsValid(propertyInfo.GetValue(obj)))
+                object value = property.GetValue(obj);
+
+                if (!attribute.IsValid(value))
                 {
                     return false;
                 }

@@ -13,3 +13,4 @@ public class StartUp
         Console.WriteLine(Validator.IsValid(person));
     }
 }
+    
