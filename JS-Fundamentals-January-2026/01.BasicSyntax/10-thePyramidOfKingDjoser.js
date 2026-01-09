@@ -1,22 +1,38 @@
-function printLoginAttempts(passwords) {
-    const username = passwords[0];
-    const password = username.split('').reverse().join('');
-    let attempts = 0;
+function printPyramidOfKingDjoser(base, increment) {
+    let stone = 0;
+    let marble = 0;
+    let lapis = 0;
+    let gold = 0;
 
-    for (let i = 1; i < passwords.length; i++) {
-        if (password === passwords[i]) {
-            console.log(`User ${username} logged in.`);
-            break;
+    let step = 0;
+    let currentBase = base;
+
+    while (currentBase > 2) {
+        step++;
+
+        let totalArea = currentBase * currentBase;
+        let innerArea = (currentBase - 2) * (currentBase - 2);
+        let outerArea = totalArea - innerArea;
+
+        stone += innerArea * increment;
+
+        if (step % 5 === 0) {
+            lapis += outerArea * increment;
         } else {
-            attempts++;
-            if (attempts < 4) {
-                console.log("Incorrect password. Try again.");
-            } else{
-                console.log(`User ${username} blocked!`);
-                break;
-            }
+            marble += outerArea * increment;
         }
-    }
-}
 
-printLoginAttempts(['sunny','rainy','cloudy','sunny','not sunny'])
+        currentBase -= 2;
+    }
+
+    step++;
+    gold += currentBase * currentBase * increment;
+
+    let finalHeight = Math.floor(step * increment);
+
+    console.log(`Stone required: ${Math.ceil(stone)}`);
+    console.log(`Marble required: ${Math.ceil(marble)}`);
+    console.log(`Lapis Lazuli required: ${Math.ceil(lapis)}`);
+    console.log(`Gold required: ${Math.ceil(gold)}`);
+    console.log(`Final pyramid height: ${finalHeight}`);
+}
