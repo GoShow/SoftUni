@@ -1,6 +1,6 @@
-function printConvertedPoundsToDolars(pounds) {
-    const dolarsInPounds = 1.31;
-    let dolars = pounds * dolarsInPounds;
+function printConvertedPoundsToDollars(pounds){
+    const rate = 1.31;
+    let dollars = pounds * rate;
     
-    console.log(dolars.toFixed(3));
+    console.log(dollars.toFixed(3));
 }

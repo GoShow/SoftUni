@@ -1,4 +1,4 @@
-function printReversedASCIICharsValues(p1, p2, p3) {
-    console.log(`${p3}${p2}${p1}`);
-    console.log(`${p3.charCodeAt(0)} ${p2.charCodeAt(0)} ${p1.charCodeAt(0)}`);
+function printReversedASCIICharsValues(ch1, ch2, ch3){
+    console.log(`${ch3}${ch2}${ch1}`);
+    console.log(`${ch3.charCodeAt(0)} ${ch2.charCodeAt(0)} ${ch1.charCodeAt(0)}`);
 }

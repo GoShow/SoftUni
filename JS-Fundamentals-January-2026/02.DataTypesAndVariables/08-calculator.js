@@ -1,11 +1,12 @@
-function calculator(a, operator, b) {
+function calculator(num1, operator, num2) {
     let result = 0;
+
     switch (operator) {
-        case '+': result = a + b; break;
-        case '-': result = a - b; break;
-        case '*': result = a * b; break;
-        case '/': result = a / b; break;
+        case '+': result = num1 + num2; break;
+        case '-': result = num1 - num2; break;
+        case '*': result = num1 * num2; break;
+        case '/': result = num1 / num2; break;
     }
 
-    console.log(result.toFixed(2));
+    console.log(result.toFixed(2))
 }
