@@ -3,7 +3,7 @@ function printNumberCount(numbers, commands) {
     let deleteCount = commands[1];
     let searchNumber = commands[2];
 
-    let takenNumbers = numbers.slice(0, takeCount);
+    let takenNumbers = numbers.splice(0, takeCount);
     takenNumbers.splice(0, deleteCount);
 
     let count = 0;
