@@ -87,13 +87,13 @@ public class Program
                 ctRow = prevRow;
                 ctCol = prevCol;
             }
-            if (matrix[ctRow, ctCol] == 'T')
+            else if (matrix[ctRow, ctCol] == 'T')
             {
                 matrix[ctRow, ctCol] = '*';
                 isDead = true;
                 break;
             }
-            if (isDefused)
+            else if (isDefused)
             {
                 break;
             }
