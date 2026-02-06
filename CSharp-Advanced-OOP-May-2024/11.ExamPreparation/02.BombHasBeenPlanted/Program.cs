@@ -78,11 +78,16 @@ public class Program
                     else
                     {
                         seconds--;
+                        continue;
                     }
                     break;
             }
 
-            if (ctRow < 0 || ctRow >= matrix.GetLength(0) || ctCol < 0 || ctCol >= matrix.GetLength(1))
+            if (isDefused)
+            {
+                break;
+            }
+            else if (ctRow < 0 || ctRow >= matrix.GetLength(0) || ctCol < 0 || ctCol >= matrix.GetLength(1))
             {
                 ctRow = prevRow;
                 ctCol = prevCol;
@@ -91,10 +96,6 @@ public class Program
             {
                 matrix[ctRow, ctCol] = '*';
                 isDead = true;
-                break;
-            }
-            else if (isDefused)
-            {
                 break;
             }
         }
