@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="01.ClimbThePeaks/01.ClimbThePeaks.csproj" />
+  <Project Path="02.BombHasBeenPlanted/02.BombHasBeenPlanted.csproj" />
+  <Project Path="03.DataCenter/03.DataCenter.csproj" />
+</Solution>
