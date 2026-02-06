@@ -91,6 +91,7 @@ public class Program
             {
                 matrix[ctRow, ctCol] = '*';
                 isDead = true;
+                break;
             }
             if (isDefused)
             {
