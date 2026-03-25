@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrade", "AutoTrade\AutoTrade.csproj", "{463DA0F3-8E05-4991-9D36-814C2B19DD19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoTrade.Tests", "AutoTrade.Tests\AutoTrade.Tests.csproj", "{8BB54240-4157-49F5-9567-1149E7A3F07B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{463DA0F3-8E05-4991-9D36-814C2B19DD19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{463DA0F3-8E05-4991-9D36-814C2B19DD19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{463DA0F3-8E05-4991-9D36-814C2B19DD19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{463DA0F3-8E05-4991-9D36-814C2B19DD19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB54240-4157-49F5-9567-1149E7A3F07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB54240-4157-49F5-9567-1149E7A3F07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB54240-4157-49F5-9567-1149E7A3F07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB54240-4157-49F5-9567-1149E7A3F07B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31E3D1C5-181C-472E-830D-C598E58D2942}
+	EndGlobalSection
+EndGlobal
