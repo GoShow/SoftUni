@@ -7,8 +7,8 @@ function printAddAndSubtract(a, b, c) {
         return num1 - num2;
     }
 
-    let sumResult = add(a, b);
-    let result = subtract(sumResult, c);
+    let addResult = add(a, b);
+    let result = subtract(addResult, c);
 
     console.log(result);
 }
